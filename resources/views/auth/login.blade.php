@@ -9,7 +9,7 @@
     <meta name="keywords"
         content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
     <meta name="author" content="elemis">
-    <title>Sandbox - Modern & Multipurpose Bootstrap 5 Template</title>
+    <title>Login</title>
     <link rel="shortcut icon" href="./assets/img/favicon.png">
     <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -71,16 +71,15 @@
             <div class="row gy-6 gy-lg-0">
                 <div class="col-md-4 col-lg-3">
                     <div class="widget">
-                        <p class="mb-4 text-black-50">© 2023 Sandbox. <br class="d-none d-lg-block">All rights
+                        <p class="mb-4 text-black-50">© 2023 FDA. <br class="d-none d-lg-block">All rights
                             reserved.</p>
                     </div>
                 </div>
                 <div class="col-md-8 col-lg-9">
                     <div class="widget text-black-50">
-                        <address class="pe-xl-10 pe-xxl-15 text-black-50">Moonshine St. 14/05 Light City, London,
-                            United Kingdom
+                        <address class="pe-xl-10 pe-xxl-15 text-black-50">88/24 ถนนติวานนท์ ตำบลตลาดขวัญ อำเภอเมือง จังหวัดนนทบุรี 11000
                         </address>
-                        <a href="mailto:#" class="text-black-50">info@email.com</a><br> 00 (123) 456 78 90
+                        <a href="mailto:saraban@fda.moph.go.th" class="text-black-50">saraban@fda.moph.go.th</a><br> 02-590-7116
                     </div>
                 </div>
             </div>

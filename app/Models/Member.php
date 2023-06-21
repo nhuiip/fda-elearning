@@ -65,4 +65,9 @@ class Member extends Authenticatable
 		'firstLoginDate',
 		'lastVisitDate'
 	];
+
+	public function exams()
+	{
+		return $this->hasMany(Exam::class, 'memberId');
+	}
 }
