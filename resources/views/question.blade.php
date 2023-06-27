@@ -255,16 +255,16 @@
                     <hr class="mt-5 mb-5">
                     @if ($indexStep != 1)
                         <button class="button btn-navigate-form-step" type="button"
-                            onclick="navigateToFormStep({{ $indexStep - 1 }})">Prev</button>
+                            onclick="navigateToFormStep({{ $indexStep - 1 }})">ย้อนกลับ</button>
                     @endif
                     @if ($indexStep != count($data))
                         <button class="button btn-navigate-form-step" type="button" step_number="{{ $indexStep + 1 }}"
-                            onclick="setCart(this)" data-input-name="choiceId-in-{{ $value->id }}">Next</button>
+                            onclick="setCart(this)" data-input-name="choiceId-in-{{ $value->id }}">ถัดไป</button>
                             <button class="button btn-navigate-form-step" type="button" onclick="saveCart(this)"
-                            data-input-name="choiceId-in-{{ $value->id }}">Save</button>
+                            data-input-name="choiceId-in-{{ $value->id }}">บันทึก</button>
                     @else
                         <button class="button btn-navigate-form-step" type="button" onclick="submitCart(this)"
-                            data-input-name="choiceId-in-{{ $value->id }}">Submit</button>
+                            data-input-name="choiceId-in-{{ $value->id }}">ส่งข้อสอบ</button>
                     @endif
                 </section>
                 @php

@@ -23,9 +23,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/sent-password', [App\Http\Controllers\HomeController::class, 'sendPassword'])->name('sent-password');
 Route::get('/pdf', [App\Http\Controllers\HomeController::class, 'pdf'])->name('pdf');
 Route::resource('lesson', LessonController::class);
-Route::get('/question/index/{lessonId}',[QuestionController::class, 'index'])->name('question');
-Route::post('/question/setCart',[QuestionController::class, 'setCart'])->name('question.setCart');
-Route::get('/question/submitCart/{lessonId}',[QuestionController::class, 'submitCart'])->name('question.submitCart');
-Route::get('/question/saveCart/{lessonId}',[QuestionController::class, 'saveCart'])->name('question.saveCart');
+Route::get('/question/index/{lessonId}', [QuestionController::class, 'index'])->name('question');
+Route::post('/question/setCart', [QuestionController::class, 'setCart'])->name('question.setCart');
+Route::get('/question/submitCart/{lessonId}', [QuestionController::class, 'submitCart'])->name('question.submitCart');
+Route::get('/question/saveCart/{lessonId}', [QuestionController::class, 'saveCart'])->name('question.saveCart');
+Route::get('/question/result/{examId}', [QuestionController::class, 'result'])->name('question.result');

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
@@ -27,7 +28,7 @@
             <div class="container pt-10 pb-15 pt-md-15 pb-md-20 text-center">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <h1 class="display-1 mb-3">Sign In</h1>
+                        {{-- <h1 class="display-1 mb-3">Sign In</h1> --}}
                     </div>
                 </div>
             </div>
@@ -38,21 +39,26 @@
                     <div class="col-lg-7 col-xl-6 col-xxl-5 mx-auto mt-n20">
                         <div class="card">
                             <div class="card-body p-11 text-center">
-                                <h2 class="mb-3 text-start">Welcome Back</h2>
-                                <p class="lead mb-6 text-start">Fill your email and password to sign in.</p>
+                                <h2 class="mb-3 text-start">สวัสดี</h2>
+                                <p class="lead mb-6 text-start">กรุณากรอกอีเมล และรหัสการเข้าใช้งานตามที่ท่านด้าสมัครไว้
+                                </p>
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="form-floating mb-4">
-                                        <input type="email" class="form-control" placeholder="Email" id="email" name="email">
-                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" placeholder="อีเมล" id="email"
+                                            name="email">
+                                        <label for="email">อีเมล</label>
                                     </div>
                                     <div class="form-floating password-field mb-4">
-                                        <input type="password" class="form-control" placeholder="Password"
+                                        <input type="password" class="form-control" placeholder="รหัสผ่าน"
                                             id="password" name="password">
                                         <span class="password-toggle"><i class="uil uil-eye"></i></span>
-                                        <label for="password">Password</label>
+                                        <label for="password">รหัสผ่าน</label>
                                     </div>
-                                    <button class="btn btn-primary rounded-pill btn-login w-100 mb-2" type="submit">Sign In</button>
+                                    <button class="btn btn-primary rounded-pill btn-login w-100 mb-2"
+                                        type="submit">เข้าสู่ระบบ</button>
+                                    <button class="btn btn-secondary rounded-pill btn-login w-100 mb-2" type="button"
+                                        onclick="sendPassword(this)">ลืมรหัสผ่าน</button>
                                     @if (!empty($errors->all()))
                                         @foreach ($errors->all() as $error)
                                             <p>{{ $error }}</p>
@@ -77,9 +83,11 @@
                 </div>
                 <div class="col-md-8 col-lg-9">
                     <div class="widget text-black-50">
-                        <address class="pe-xl-10 pe-xxl-15 text-black-50">88/24 ถนนติวานนท์ ตำบลตลาดขวัญ อำเภอเมือง จังหวัดนนทบุรี 11000
+                        <address class="pe-xl-10 pe-xxl-15 text-black-50">88/24 ถนนติวานนท์ ตำบลตลาดขวัญ อำเภอเมือง
+                            จังหวัดนนทบุรี 11000
                         </address>
-                        <a href="mailto:saraban@fda.moph.go.th" class="text-black-50">saraban@fda.moph.go.th</a><br> 02-590-7116
+                        <a href="mailto:saraban@fda.moph.go.th" class="text-black-50">saraban@fda.moph.go.th</a><br>
+                        02-590-7116
                     </div>
                 </div>
             </div>
@@ -90,8 +98,58 @@
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
         </svg>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('js/plugins.js') }}"></script>
     <script src="{{ asset('js/theme.js') }}"></script>
+    <script>
+        function sendPassword(e) {
+            let url = "{!! route('sent-password') !!}";
+            let token = $('meta[name="csrf-token"]').attr('content');
+            Swal.fire({
+                title: 'กรุณากรอกอีเมลที่ท่านใช้สมัคร',
+                input: 'email',
+                inputAttributes: {
+                    autocapitalize: 'off'
+                },
+                showCancelButton: true,
+                confirmButtonText: 'ตกลง',
+                cancelButtonText: 'ยกเลิก',
+                showLoaderOnConfirm: true,
+                preConfirm: (email) => {
+                    return $.ajax({
+                        url: url,
+                        type: 'POST',
+                        data: {
+                            _token: token,
+                            email: email
+                        },
+                        success: function(response) {
+                            console.log(response);
+                            if (response == true) {
+                                return response;
+                            } else {
+                                Swal.showValidationMessage(response);
+                            }
+                        }
+                    })
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            }).then((result) => {
+                console.log(result);
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'ส่งรหัสผ่านอีกครั้งเรียบร้อยแล้ว',
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
+                } else {
+                    Swal.close();
+                }
+            })
+        }
+    </script>
 </body>
 
 </html>

@@ -64,14 +64,11 @@
         alt="" width="15%">
     <div class="box">
         <p style="font-size: 40px;font-weight: bold;">ประกาศนียบัตรรับรอง</p>
-        <br>
         <div style="line-height: 12px;">
-            <br>
             <h1>กองผลิตภัณฑ์สมุนไพร</h1>
             <h1>สำนักงานคณะกรรมการอาหารและยา</h1>
             <h2>ขอมอบเกียรติบัตรฉบับนี้</h2>
             <h2>เพื่อแสดงว่า</h2>
-            <br>
             <br>
             <br>
         </div>
@@ -95,8 +92,8 @@
             <br>
             <br>
             <br>
-            <br>
         </div>
+        <img src="https://aseangmpthaifda.com/img/S__5480582.jpg" alt="" width="15%">
         <hr style="width: 40%;border: 1px dotted black;">
         <div style="line-height: 10px;">
             <h2>นายฉัตรชัย พานิชศุภภรณ์</h2>

@@ -39,13 +39,16 @@
                     <ul class="navbar-nav mb-2 mb-lg-0 ms-lg-auto">
                         <li class="nav-item">
                             <a class="nav-link  @if (Route::is('home')) active @endif" aria-current="page"
-                                href="{{ route('home') }}">บทเรียน</a>
+                                href="{{ route('home') }}">หมวดการเรียนรู้</a>
                         </li>
                         @if (Auth::user()->passed)
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{ route('pdf') }}">ดาวน์โหลดใบรับรอง</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="{{ route('pdf') }}">ดาวน์โหลดใบรับรอง</a>
+                            </li>
                         @endif
+                        <li class="nav-item">
+                            <a class="nav-link" href="">ยินดีต้อนรับ, {{ Auth::user()->name }}</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page"
                                 onclick="event.preventDefault();
@@ -78,9 +81,11 @@
                     </div>
                     <div class="col-md-8 col-lg-9">
                         <div class="widget text-black-50">
-                            <address class="pe-xl-10 pe-xxl-15 text-black-50">88/24 ถนนติวานนท์ ตำบลตลาดขวัญ อำเภอเมือง จังหวัดนนทบุรี 11000
+                            <address class="pe-xl-10 pe-xxl-15 text-black-50">88/24 ถนนติวานนท์ ตำบลตลาดขวัญ อำเภอเมือง
+                                จังหวัดนนทบุรี 11000
                             </address>
-                            <a href="mailto:saraban@fda.moph.go.th" class="text-black-50">saraban@fda.moph.go.th</a><br> 02-590-7116
+                            <a href="mailto:saraban@fda.moph.go.th" class="text-black-50">saraban@fda.moph.go.th</a><br>
+                            02-590-7116
                         </div>
                     </div>
                 </div>

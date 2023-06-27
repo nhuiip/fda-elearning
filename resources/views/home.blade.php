@@ -2,7 +2,7 @@
 @section('title', $title)
 @section('content')
     <div class="row text-center mb-5">
-        <h3 class="display-4 mb-10 px-xl-10 mb-0">บทเรียน</h3>
+        <h3 class="display-4 mb-10 px-xl-10 mb-0">หมวดการเรียนรู้</h3>
         <hr class="mt-0 mb-0">
     </div>
     <div class="row">

@@ -46,7 +46,7 @@ class QuestionController extends Controller
         }
 
         return view('question', [
-            'title' => Lesson::find($lessonId)->name.': ทำแบบทดสอบ',
+            'title' => Lesson::find($lessonId)->name . ': ทำแบบทดสอบ',
             'lesson' => Lesson::find($lessonId),
             'data' => Question::with('choices')->where('lessonId', $lessonId)->get()
         ]);
@@ -129,7 +129,7 @@ class QuestionController extends Controller
         $cart->destroy();
         $this->checkStatusMember();
 
-        return  redirect()->route('home');
+        return  redirect()->route('question.result', ['examId' => $exam->id]);
     }
 
     public function saveCart($lessonId)
@@ -175,6 +175,27 @@ class QuestionController extends Controller
         return  redirect()->route('home');
     }
 
+    public function result($examId)
+    {
+        $member = Member::findOrFail(Auth::user()->id);
+        $exam = Exam::findOrFail($examId);
+        $lesson = Lesson::findOrFail($exam->lessonId);
+
+        $title = "Result";
+        if (!$member->passed) {
+            $title = "Result: " . $lesson->name;
+        }
+
+        return view('result', [
+            'title' => $title,
+            'member' => $member,
+            'exam' => $exam,
+            'lesson' => $lesson,
+            'maxScore' => Question::where('lessonId', $lesson->id)->sum('score'),
+            'countRight' => ExamsItem::where(['examId' => $exam->id, 'isRight' => true])->count(),
+        ]);
+    }
+
     public function checkStatusMember()
     {
         $preCheck = array();
@@ -187,11 +208,12 @@ class QuestionController extends Controller
                 array_push($preCheck, false);
             }
         }
+        $member = Member::findOrFail(Auth::user()->id);
         if (!in_array(false, $preCheck)) {
-            $member = Member::findOrFail(Auth::user()->id);
             $member->passed = true;
             $member->save();
         }
+        return $member->passed;
     }
     /**
      * Show the form for creating a new resource.
