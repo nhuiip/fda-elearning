@@ -17,7 +17,11 @@ class MemberPassword extends Mailable
     /**
      * Create a new message instance.
      */
-
+    // public $data;
+    // public function __construct()
+    // {
+    //     public Order $order
+    // }
     public function __construct(
         public Member $data,
     ) {}
@@ -35,5 +39,25 @@ class MemberPassword extends Mailable
             ),
             subject: 'FDA: รหัสการเข้าใช้งาน การอบรมออนไลน์หัวข้อ "การอบรมการพัฒนาหลักสูตรฝึกอบรมแก่ภาคีเครือข่ายของกองผลิตภัณฑ์สมุนไพรเพื่อยกระดับมาตรฐานด้านการตรวจประเมินสถานที่ผลิตผลิตภัณฑ์สมุนไพรอย่างมีระบบ”',
         );
+    }
+
+    /**
+     * Get the message content definition.
+     */
+    public function content(): Content
+    {
+        return new Content(
+            view: 'send-password'
+        );
+    }
+
+    /**
+     * Get the attachments for the message.
+     *
+     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+     */
+    public function attachments(): array
+    {
+        return [];
     }
 }
