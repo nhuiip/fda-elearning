@@ -40,7 +40,7 @@
                         <div class="card">
                             <div class="card-body p-11 text-center">
                                 <h2 class="mb-3 text-start">สวัสดี</h2>
-                                <p class="lead mb-6 text-start">กรุณากรอกอีเมล และรหัสการเข้าใช้งานตามที่ท่านด้าสมัครไว้
+                                <p class="lead mb-6 text-start">กรุณากรอกอีเมล และรหัสการเข้าใช้งานตามที่ท่านได้สมัครไว้
                                 </p>
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf

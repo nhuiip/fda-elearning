@@ -36,16 +36,14 @@ class HomeController extends Controller
         ]);
     }
     public function sendPassword(Request $request)
-    {        // get member by email
+    {
         $member = Member::where('email',  $request->email)->first();
         if ($member == null) {
             return 'ไม่พบอีเมล ' . $request->email . ' ในระบบ';
         } else {
             Mail::to($member->email)->send(new MemberPassword($member));
-            // Mail::to('preedarat.jut@gmail.com')->send(new MemberPassword($member));
             return true;
         }
-        // return json_encode($member);
     }
 
     public function pdf()
