@@ -13,7 +13,7 @@
                 
                 if ($value->videoUrl != null) {
                     $videoId = str_replace('https://youtu.be/', '', $value->videoUrl);
-                    $coverUrl = 'http://img.youtube.com/vi/' . $videoId . '/maxresdefault.jpg';
+                    $coverUrl = 'https://img.youtube.com/vi/' . $videoId . '/maxresdefault.jpg';
                 }
             @endphp
             <div class="col-md-4 mb-5">

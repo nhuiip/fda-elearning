@@ -51,10 +51,10 @@
             line-height: 0;
         }
 
-        span {
+        /* span {
             border-bottom: 1px dotted black;
             text-align: center;
-        }
+        } */
     </style>
 </head>
 
@@ -72,20 +72,21 @@
             <br>
             <br>
         </div>
-        <div style="line-height: 5px;">
+        <div>
             <h1>{{ $data['name'] }}</h1>
-            <hr style="width: 50%;border: 1px dotted black;">
+            {{-- <hr style="width: 50%;border: 1px dotted black;"> --}}
         </div>
         <div style="line-height: 12px;">
             <h1>ผ่านการอบรมหลักสูตร</h1>
             <div style="line-height: 10px;">
+                <br>
                 <h2>หลักเกณฑ์ วิธีการ และเงื่อนไขขั้นพื้นฐานเกี่ยวกับการผลิตผลิตภัณฑ์สมุนไพร</h2>
                 <h2>ตามพระราชบัญญัติผลิตภัณฑ์สมุนไพร พ.ศ. 2562</h2>
                 <h3>ให้ไว้ ณ วันที่
                     <span>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;
                         {{ $data['date'] }}
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;
                     </span>
                 </h3>
             </div>
@@ -98,8 +99,8 @@
         <div style="line-height: 10px;">
             <h2>นายฉัตรชัย พานิชศุภภรณ์</h2>
             <h2>ผู้อำนวยการกองผลิตภัณฑ์สมุนไพร</h2>
-            <img src="https://www.thaiload.com/wp-content/uploads/2018/04/file_id_110242.jpg" alt=""
-                width="35%">
+            <img src="https://aseangmpthaifda.com/img/snippet.png" alt=""
+                width="30%">
         </div>
     </div>
 

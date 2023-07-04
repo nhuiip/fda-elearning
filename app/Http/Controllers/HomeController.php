@@ -48,12 +48,12 @@ class HomeController extends Controller
 
     public function pdf()
     {
-        $date = Exam::where(['memberId' =>  Auth::user()->id, 'isPass' => true])->orderBy('created_at')->first();
-        $data = array('name' => Auth::user()->name, 'date' => $date->created_at);
+        $date = Exam::where(['memberId' =>  Auth::user()->id, 'isPass' => true])->orderBy('created_at', 'desc')->first();
+        $data = array('name' => Auth::user()->name, 'date' => date('d/m/Y', strtotime($date->created_at)));
         // $pdf = PDF::loadView('pdf', $data);
         $pdf = Pdf::loadView('pdf', ['data' => $data]);
         // return $pdf->stream();
 
-        return $pdf->download(date('Ymd-hiA', strtotime($date->created_at)) . '.pdf');
+        return $pdf->download(date('YmdhisA', strtotime(now())) . '.pdf');
     }
 }

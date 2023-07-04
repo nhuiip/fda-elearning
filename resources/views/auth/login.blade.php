@@ -55,10 +55,19 @@
                                         <span class="password-toggle"><i class="uil uil-eye"></i></span>
                                         <label for="password">รหัสผ่าน</label>
                                     </div>
-                                    <button class="btn btn-primary rounded-pill btn-login w-100 mb-2"
-                                        type="submit">เข้าสู่ระบบ</button>
-                                    <button class="btn btn-secondary rounded-pill btn-login w-100 mb-2" type="button"
-                                        onclick="sendPassword(this)">ลืมรหัสผ่าน</button>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <button class="btn btn-primary rounded-pill btn-login w-100 mb-2"
+                                                type="submit">เข้าสู่ระบบ</button>
+                                        </div>
+                                        <div class="col-6 pe-1">
+                                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScmQoMUZs_qr1HwfF7W9ieIRKLf2g5KiC05ct8qKmV-WPBlAA/viewform" class="btn btn-info rounded-pill btn-login w-100 mb-2">ลงทะเบียน</a>
+                                        </div>
+                                        <div class="col-6 ps-1">
+                                            <button class="btn btn-secondary rounded-pill btn-login w-100 mb-2"
+                                                type="button" onclick="sendPassword(this)">ลืมรหัสผ่าน</button>
+                                        </div>
+                                    </div>
                                     @if (!empty($errors->all()))
                                         @foreach ($errors->all() as $error)
                                             <p>{{ $error }}</p>
