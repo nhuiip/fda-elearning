@@ -92,11 +92,9 @@
                 </div>
                 <div class="col-md-8 col-lg-9">
                     <div class="widget text-black-50">
-                        <address class="pe-xl-10 pe-xxl-15 text-black-50">88/24 ถนนติวานนท์ ตำบลตลาดขวัญ อำเภอเมือง
-                            จังหวัดนนทบุรี 11000
-                        </address>
-                        <a href="mailto:saraban@fda.moph.go.th" class="text-black-50">saraban@fda.moph.go.th</a><br>
-                        02-590-7116
+                        <address class="pe-xl-10 pe-xxl-15 text-black-50">งานมาตรฐานสถานที่ กลุ่มกำกับดูแลหลังออกสู่ตลาด กองผลิตภัณฑ์สมุนไพร</address>
+                        <a href="mailto:saraban@fda.moph.go.th" class="text-black-50">warisa.yangngan@gmail.com</a><br>
+                        025907164
                     </div>
                 </div>
             </div>
