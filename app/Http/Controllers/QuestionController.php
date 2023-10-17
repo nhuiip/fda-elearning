@@ -43,6 +43,17 @@ class QuestionController extends Controller
                     ]
                 ]);
             }
+        } else {
+            // check in cart
+            $cart = Cart::name('exams');
+            $items = $cart->getDetails()->get('items');
+            foreach ($items as $hash => $item) {
+                $questionId = $item->extra_info->questionId;
+                $thisLesson = Question::find($questionId)->lessonId;
+                if ($thisLesson != $lessonId) {
+                    $cart->removeItem($hash);
+                }
+            }
         }
 
         return view('question', [
