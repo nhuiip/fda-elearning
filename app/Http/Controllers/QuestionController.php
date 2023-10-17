@@ -118,13 +118,16 @@ class QuestionController extends Controller
         $exam->save();
         // add item
         foreach ($items as $hash => $item) {
-            $data = new ExamsItem();
-            $data->examId = $exam->id;
-            $data->questionId = $item->extra_info->questionId;
-            $data->choiceId = $item->extra_info->choiceId;
-            $data->score = $item->extra_info->score;
-            $data->isRight = $item->extra_info->isRight;
-            $data->save();
+            $thisLesson = Question::find($item->extra_info->questionId)->lessonId;
+            if ($thisLesson == $lessonId) {
+                $data = new ExamsItem();
+                $data->examId = $exam->id;
+                $data->questionId = $item->extra_info->questionId;
+                $data->choiceId = $item->extra_info->choiceId;
+                $data->score = $item->extra_info->score;
+                $data->isRight = $item->extra_info->isRight;
+                $data->save();
+            }
         }
         // update exam
         $lesson = Lesson::find($lessonId);
@@ -162,13 +165,16 @@ class QuestionController extends Controller
         $exam->save();
         // add item
         foreach ($items as $hash => $item) {
-            $data = new ExamsItem();
-            $data->examId = $exam->id;
-            $data->questionId = $item->extra_info->questionId;
-            $data->choiceId = $item->extra_info->choiceId;
-            $data->score = $item->extra_info->score;
-            $data->isRight = $item->extra_info->isRight;
-            $data->save();
+            $thisLesson = Question::find($item->extra_info->questionId)->lessonId;
+            if ($thisLesson == $lessonId) {
+                $data = new ExamsItem();
+                $data->examId = $exam->id;
+                $data->questionId = $item->extra_info->questionId;
+                $data->choiceId = $item->extra_info->choiceId;
+                $data->score = $item->extra_info->score;
+                $data->isRight = $item->extra_info->isRight;
+                $data->save();
+            }
         }
         // update exam
         $lesson = Lesson::find($lessonId);
